@@ -337,7 +337,7 @@ class Selenium2Driver extends CoreDriver
         try {
             $this->wdSession->close();
         } catch (\Exception $e) {
-            throw new DriverException('Could not close connection', 0, $e);
+            throw new DriverException(sprintf('Could not close connection. Previous message: "%s"', $e->getMessage()), 0, $e);
         }
     }
 
